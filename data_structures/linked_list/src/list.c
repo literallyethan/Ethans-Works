@@ -51,6 +51,66 @@ int list_add(Node* list, void* data) {
     return 0;
 }
 
+int list_rm(Node** node) {
+    if (node == NULL) {
+        puts("node cannot be null.");
+        return -1;
+    }
+
+    if (*node == NULL) {
+        puts("node cannot be null.");
+        return -1;
+    }
+
+    if ((*node)->next == NULL) {
+        //the only node, or the last node
+        free(node);
+        node = NULL;
+        return 0;
+    }
+
+    Node* next_node = (*node)->next;
+    free(*node);
+    *node = next_node;
+
+    return 0;
+}
+/*
+Node* get_next(Node* node) {
+    if (node == NULL) {
+        puts("node cannot be null.");
+        return NULL;
+    }
+
+    if (node->next == NULL) {
+        puts("next node cannot be NULL");
+        return NULL;
+    }
+
+    return node->next;
+}
+
+int set_next(Node** node, Node* next) {
+    if (node == NULL) {
+        puts("node cannot be null.");
+        return -1;
+    }
+
+    if (*node == NULL) {
+        puts("node cannot be null.");
+        return -1;
+    }
+
+    if (next == NULL) {
+        puts("next node cannot be NULL, you tryna memory leak??");
+        return -1;
+    }
+
+    (*node)->next = next;
+
+    return 0;
+}
+*/
 void print_list(Node* list, int16_t arg) {
     if (list == NULL) {
         puts("cannot print a null list.");
@@ -69,6 +129,7 @@ void print_list(Node* list, int16_t arg) {
 
         current = current->next;
     }
+    printf("\n\n");
 }
 
 int destroy_list(Node* list) {

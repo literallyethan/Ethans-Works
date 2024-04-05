@@ -5,15 +5,28 @@ int main() {
 
     int* testdata = (int*)malloc(sizeof(int));
     *testdata = 10;
+
+    int* testdata2 = (int*)malloc(sizeof(int));
+    *testdata2 = 20;
+
     int err = list_add(list, (void*)testdata);
     if (err == -1) {
         puts("failed list_add, no new node added");
-        return -1;
+        return err;
     }
 
-//  printf("test value in new node: %d\n", ((int*)(list->next->data))[0]);
+    err = list_add(list, (void*)testdata2);
+    if (err == -1) {
+        puts("failed list_add, no new node added");
+        return err;
+    }
+
+
     print_list(list, 0);
 
+    list_rm(&list);
+
+    print_list(list, 0);
 
     if (destroy_list(list) == -1) {
         puts("destroy list failed, memory leak!!!!");

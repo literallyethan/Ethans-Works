@@ -10,6 +10,10 @@ typedef struct Node Node;
 //NOTE: all int functions return -1 on fail, 0 on success.
 //      pointer functions return NULL on fail.
 
+//NOTE: currently, if you have 2 nodes with the same data pointer,
+//      destroying the list creates a double free.
+//      prevent this.
+
 // initialize a list, creating a head with empty data
 Node* init_list();
 
@@ -22,9 +26,18 @@ Node* init_list();
 // when you pass a pointer into this function, you need to cast it to void.
 int list_add(Node* list, void* data);
 
-// remove a node
+// remove a node. return a pointer to the Node
+// after the removed node if it exists, otherwise
+// return NULL.
+int list_rm(Node** node);
 
 // get some data
+
+// get next node
+Node* get_next(Node* node);
+
+//set next node
+int set_next(Node** node, Node* next);
 
 // change some data
 
