@@ -87,6 +87,15 @@ int list_rm(Node** list, void* data) {
     return -1;
 }
 
+void* get_data(Node* node) {
+    if (node == NULL) {
+        puts("node cannot be null.");
+        return NULL;
+    }
+
+    return node->data;
+}
+
 Node* get_next(Node** node) {
     if (node == NULL) {
         puts("node cannot be null.");
