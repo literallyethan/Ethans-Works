@@ -51,45 +51,61 @@ int list_add(Node* list, void* data) {
     return 0;
 }
 
-int list_rm(Node** node) {
+int list_rm(Node** list, void* data) {
+    if (list == NULL || *list == NULL) {
+        puts("given node is empty");
+        return -1;
+    }
+
+    Node* prev = NULL; // to check if head
+    Node* current = *list;
+
+    while (current != NULL) {
+        // if not NULL,
+        // check if the data matches.
+        // if so, delete
+
+        if (current->data == data) {
+            // delete node and return 0
+            if (prev == NULL) {
+                if ((*list)->data != NULL) free((*list)->data);
+                *list = current->next; // update if head is removed
+            }
+            else
+                prev->next = current->next; // decouple and reset
+            free(current->data);
+            free(current);
+            return 0;
+        }
+
+        // if there is a next, iterate
+        prev = current; //remember previous
+        current = current->next;
+    }
+
+    puts("node to remove not found.");
+    return -1;
+}
+
+Node* get_next(Node** node) {
     if (node == NULL) {
         puts("node cannot be null.");
-        return -1;
+        return NULL;
     }
 
     if (*node == NULL) {
         puts("node cannot be null.");
-        return -1;
-    }
-
-    if ((*node)->next == NULL) {
-        //the only node, or the last node
-        free(node);
-        node = NULL;
-        return 0;
-    }
-
-    Node* next_node = (*node)->next;
-    free(*node);
-    *node = next_node;
-
-    return 0;
-}
-/*
-Node* get_next(Node* node) {
-    if (node == NULL) {
-        puts("node cannot be null.");
         return NULL;
     }
 
-    if (node->next == NULL) {
+    if ((*node)->next == NULL) {
         puts("next node cannot be NULL");
         return NULL;
     }
 
-    return node->next;
+    return (*node)->next;
 }
-
+/*
 int set_next(Node** node, Node* next) {
     if (node == NULL) {
         puts("node cannot be null.");
@@ -145,7 +161,13 @@ int destroy_list(Node* list) {
     // if current node is NULL, stop
     while (current != NULL) {
         next_tracker = current->next;
-        if (current->data != NULL) free(current->data);
+        if (current->data != NULL) {
+            // in case of dupe data,
+            // set data to null as a safeguard
+            // to double free
+            free(current->data);
+            current->data = NULL;
+        }
         free(current);
         current = next_tracker;
     }

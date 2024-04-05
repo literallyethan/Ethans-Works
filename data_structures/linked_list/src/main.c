@@ -9,6 +9,9 @@ int main() {
     int* testdata2 = (int*)malloc(sizeof(int));
     *testdata2 = 20;
 
+    int* testdata3 = (int*)malloc(sizeof(int));
+    *testdata3 = 30;
+
     int err = list_add(list, (void*)testdata);
     if (err == -1) {
         puts("failed list_add, no new node added");
@@ -21,10 +24,15 @@ int main() {
         return err;
     }
 
+    err = list_add(list, (void*)testdata3);
+    if (err == -1) {
+        puts("failed list_add, no new node added");
+        return err;
+    }
 
     print_list(list, 0);
 
-    list_rm(&list);
+    list_rm(&list, (void*)testdata);
 
     print_list(list, 0);
 
