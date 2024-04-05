@@ -35,6 +35,7 @@ int list_add(Node* list, void* data);
 int list_rm(Node** list, void* data);
 
 // get some data
+void* get_data(Node* node);
 
 // get next node
 Node* get_next(Node** node);
