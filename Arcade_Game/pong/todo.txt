@@ -1,0 +1,20 @@
+maybe add structs on the borders to bounce off of?
+   //nah thats stupid
+
+TODO:
+x   1. implement wall bouncing
+    x   i.   struct elements up/down speed and horizontal speed
+    x   ii.  when you hit a wall, set respective speed to
+             SPEED = -SPEED
+    x   iii. when it adds, its subtracting if its negative
+    x   iv.  so, project an imaginary ball where the ball WILL go and bounce
+             if necessary
+x   2. make paddles
+    3. make paddles movable
+        i. using differing inputs for 2 players
+    4. implement paddle bouncing
+    5. implement detection for hitting goal zones
+    6. implement score
+        i. super cool to have displayable structs
+           that are big numbers that change with score
+

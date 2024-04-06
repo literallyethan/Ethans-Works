@@ -1,0 +1,21 @@
+V "GNAT Lib v13"
+M P W=b
+P ZX
+
+RN
+
+U main%b		main.adb		1392d1ed NE OO SU
+W equipment%s		equipment.adb		equipment.ali
+
+D equipment.ads		20240305055012 76a29e85 equipment%s
+D main.adb		20240305055257 65304f68 main%b
+D system.ads		20240202103600 426dafb8 system%s
+G a e
+G c Z b b [main standard 3 11 none]
+G r c none [main standard 3 11 none] [generate_data equipment 7 19 none]
+X 1 equipment.ads
+2K9*Equipment 30e14 2|1w6 1r21
+7U19*Generate_Data 2|5s9
+X 2 main.adb
+3U11*Main 3b11 7l5 7t9
+
