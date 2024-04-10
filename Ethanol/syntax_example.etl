@@ -1,0 +1,28 @@
+using io;
+
+class Object {
+
+private:
+	int x;
+	string name;
+
+public: 
+	Object (int setx, string setname) {
+		x = setx;
+		name = setname;
+	}
+
+	printName() {
+		println(name);
+	}
+}
+
+main(int argc, string[] argv) {
+	print("Hello\n");
+	printf("%s\n", "Hello");
+	println("Hello");
+
+	Object obj = new Object(10, "Ethan");
+	obj.printName();	
+
+}
