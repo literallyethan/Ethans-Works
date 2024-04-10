@@ -1,28 +1,27 @@
 using io;
+using std;
 
 class Object {
-
-private:
 	int x;
 	string name;
 
-public: 
-	Object (int setx, string setname) {
-		x = setx;
-		name = setname;
-	}
+	public {
+		Object (int setx, string setname) {
+			x = setx;
+			name = setname;
+		}
 
-	printName() {
-		println(name);
-	}
+		printName() {
+			println(name);
+		}
+	} // end public
 }
 
 main(int argc, string[] argv) {
-	print("Hello\n");
 	printf("%s\n", "Hello");
 	println("Hello");
 
 	Object obj = new Object(10, "Ethan");
-	obj.printName();	
+	obj.printName();
 
 }
