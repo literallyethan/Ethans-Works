@@ -1,0 +1,7 @@
+// denotes grammar flows:
+// using io;
+// using is lexed into USING
+// which the computer then expects the next thing
+// before a semicolon to be LIB
+
+USING -> LIB

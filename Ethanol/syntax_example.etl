@@ -5,19 +5,19 @@ class Object {
 	int x;
 	string name;
 
-	public {
-		Object (int setx, string setname) {
-			x = setx;
-			name = setname;
-		}
+public: 
+	Object (int setx, string setname) {
+		x = setx;
+		name = setname;
+	}
 
-		printName() {
-			println(name);
-		}
-	} // end public
+	proc printName() {
+		println(name);
+	}
+	
 }
 
-main(int argc, string[] argv) {
+proc main(int argc, string[] argv) {
 	printf("%s\n", "Hello");
 	println("Hello");
 
