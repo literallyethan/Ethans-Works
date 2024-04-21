@@ -11,6 +11,8 @@ public:
 		name = setname;
 	}
 
+	~Object () {}
+
 	proc printName() {
 		println(name);
 	}
@@ -23,5 +25,7 @@ proc main(int argc, string[] argv) {
 
 	Object obj = new Object(10, "Ethan");
 	obj.printName();
+
+	// when main's scope is ended, RAII cleans up obj
 
 }

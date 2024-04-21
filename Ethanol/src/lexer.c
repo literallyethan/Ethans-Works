@@ -14,7 +14,7 @@ char* lookup(char* token) {
 	if (token == "using") {
 		return "[USING]";
 	} else {
-		return "[ID]"
+		return "[ID]";
 	}
 
 	return NULL;
@@ -31,8 +31,7 @@ void lexer(FILE* file) {
 	// whitespace is hit, flush token[]. 
 	// token will be passed to lookup().
 	
-	short n = 21;
-	char token[n] = {0};
+	char token_buf[21] = {0};
 	
 	int ch;
 	while ((ch = fgetc(file)) != EOF)  {

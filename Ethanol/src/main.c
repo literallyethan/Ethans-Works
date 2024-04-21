@@ -33,8 +33,8 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	
-	file = fopen(filepath, "r");     // do not need to modify file
-					 // to lex it
+	// do not need to modify file
+	file = fopen(filepath, "r");
 
 	if (file == NULL) {
 		puts("error reading file.");
